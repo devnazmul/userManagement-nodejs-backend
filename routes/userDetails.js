@@ -13,7 +13,7 @@ const moonSchema = new mongoose.Schema({
     address: String
 });
 
-let moon = mongoose.model('UserDetails', moonSchema);
+let moon = mongoose.model('AdminAddedUser', moonSchema);
 
 router.post('/', async (req, res) => {
 

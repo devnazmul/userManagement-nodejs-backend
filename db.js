@@ -6,11 +6,11 @@ module.exports = () => {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	};
-	mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASS}@cluster0.gu8bj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, connectionParams)
-		.then(() => {
-			console.log("Connected to database successfully");
-		})
-		.catch((err) => {
-			console.log('db Error');
-		})
-}
+	try {
+		mongoose.connect(process.env.DB, connectionParams);
+		console.log("Connected to database successfully");
+	} catch (error) {
+		console.log(error);
+		console.log("Could not connect database!");
+	}
+};
